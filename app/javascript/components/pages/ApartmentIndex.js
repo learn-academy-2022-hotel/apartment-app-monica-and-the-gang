@@ -32,14 +32,6 @@ const ApartmentIndex = ({ apartments }) => {
                 Email: {apartment.email}
               </ListGroupItem>
             </ListGroup>
-            {/* <CardBody> */}
-              {/* <CardLink href="#">
-                Card Link
-              </CardLink>
-              <CardLink href="#">
-                Another Card Link */}
-              {/* </CardLink> */}
-            {/* </CardBody> */}
           </Card>
         )
       })}
