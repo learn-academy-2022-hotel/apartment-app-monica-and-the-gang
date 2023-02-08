@@ -1,4 +1,4 @@
-const apartments = [
+const mockApartments = [
   {
     street: "4 Privet Drive",
     city: "Little Whinging",
@@ -40,4 +40,5 @@ const apartments = [
   }
 ]
 
-export default apartments
+export default mockApartments
+

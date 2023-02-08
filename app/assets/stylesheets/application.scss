@@ -13,4 +13,17 @@
  *= require_tree .
  *= require_self
  */
+.index-card {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.index-image {
+    width: auto;
+    height: 200px;
+}
+.index-header {
+    text-align: center;
+}
+
 @import 'bootstrap';
