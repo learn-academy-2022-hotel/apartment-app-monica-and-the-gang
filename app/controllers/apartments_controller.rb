@@ -1,4 +1,7 @@
 class ApartmentsController < ApplicationController
-    def index
+
+def index
+    apartments = Apartment.all
+    render json: apartments
     end
 end
