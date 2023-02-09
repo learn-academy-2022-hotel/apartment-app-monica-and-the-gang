@@ -24,13 +24,20 @@ const Navigation = ({
             </a>
           </NavItem>
         )}
-            {logged_in && (
-              <NavItem>
-                <NavLink to="/apartmentindex" className="nav-link">
-                  View Listings
-                </NavLink>
-              </NavItem>
-            )}
+        {logged_in && (
+          <NavItem>
+            <NavLink to="/apartmentindex" className="nav-link">
+              View Listings
+            </NavLink>
+          </NavItem>
+        )}
+        {!logged_in && (
+          <NavItem>
+            <NavLink to="/apartmentindex" className="nav-link">
+              View Listings
+            </NavLink>
+          </NavItem>
+        )}
         {logged_in && (
           <NavItem>
             <NavLink to="/apartmentshow/:id" className="nav-link">
@@ -50,6 +57,13 @@ const Navigation = ({
             <a href={new_user_route} className="nav-link">
               Sign Up
             </a>
+          </NavItem>
+        )}
+        {logged_in && (
+          <NavItem>
+            <NavLink to="/apartmentnew" className="nav-link">
+              Create Apartment
+            </NavLink>
           </NavItem>
         )}
       </Nav>
