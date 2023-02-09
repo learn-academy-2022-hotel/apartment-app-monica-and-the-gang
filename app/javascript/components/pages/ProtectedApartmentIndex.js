@@ -6,7 +6,7 @@ const ProtectedApartmentIndex = ({ apartments, current_user }) => {
     const currentUserApartments = apartments?.filter((apartment) => {
         return apartment.user_id === current_user.id
     })
-    console.log(current_user);
+    
   return (
     <main>
       <h1 className="index-header">My Listings</h1>

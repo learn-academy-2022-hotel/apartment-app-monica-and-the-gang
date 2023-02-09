@@ -3,6 +3,7 @@ import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem} from "rea
 
 
 const ApartmentIndex = ({ apartments }) => {
+  
   return (
     <main>
       <h1 className="index-header">Apartments</h1>

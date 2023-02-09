@@ -14,7 +14,7 @@ import ProtectedApartmentIndex from "./pages/ProtectedApartmentIndex"
 
 const App = (props) => {
   const [apartments, setApartments] = useState(mockApartments)
-  console.log(apartments);
+  
   useEffect(() => {
     readApartments()
   }, [])

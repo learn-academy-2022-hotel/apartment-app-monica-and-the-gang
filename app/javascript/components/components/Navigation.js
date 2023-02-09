@@ -31,7 +31,7 @@ const Navigation = ({
             </NavLink>
           </NavItem>
         )}
-      {logged_in && (
+        {logged_in && (
           <NavItem>
             <NavLink to="/mylistings" className="nav-link">
               My Listings
