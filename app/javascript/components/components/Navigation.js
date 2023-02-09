@@ -31,16 +31,9 @@ const Navigation = ({
             </NavLink>
           </NavItem>
         )}
-        {!logged_in && (
-          <NavItem>
-            <NavLink to="/apartmentindex" className="nav-link">
-              View Listings
-            </NavLink>
-          </NavItem>
-        )}
         {logged_in && (
           <NavItem>
-            <NavLink to="/apartmentshow/:id" className="nav-link">
+            <NavLink to="/mylistings" className="nav-link">
               My Listings
             </NavLink>
           </NavItem>

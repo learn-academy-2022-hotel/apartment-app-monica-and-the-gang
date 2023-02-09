@@ -1,14 +1,17 @@
 import React from "react"
-import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem} from "reactstrap"
+import { Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem } from "reactstrap"
 
 
-const ApartmentIndex = ({ apartments }) => {
-  
+const ProtectedApartmentIndex = ({ apartments, current_user }) => {
+    const currentUserApartments = apartments?.filter((apartment) => {
+        return apartment.user_id === current_user.id
+    })
+    
   return (
     <main>
-      <h1 className="index-header">Apartments</h1>
+      <h1 className="index-header">My Listings</h1>
       <div className="index-card">
-      {apartments?.map((apartment, index) => {
+      {currentUserApartments?.map((apartment, index) => {
         return (
           <Card  style={{width: '18rem'}} key={index}>
             <img className="index-image" alt="Image" src={apartment.image}/>
@@ -41,4 +44,4 @@ const ApartmentIndex = ({ apartments }) => {
   )
 }
 
-export default ApartmentIndex
+export default ProtectedApartmentIndex
