@@ -13,7 +13,7 @@ import ProtectedApartmentIndex from "./pages/ProtectedApartmentIndex"
 
 
 const App = (props) => {
-  const [apartments, setApartments] = useState(mockApartments)
+  const [apartments, setApartments] = useState([])
   
   useEffect(() => {
     readApartments()
@@ -29,7 +29,7 @@ const App = (props) => {
   }
 
   const createApartment = (aptObj) => {
-    fetch('/apartments', {
+    fetch("/apartments", {
       body: JSON.stringify(aptObj),
       headers: {
         "Content-Type": "application/json"
@@ -42,19 +42,21 @@ const App = (props) => {
   }
 
   return (
-    <BrowserRouter>
-      <Header {...props} />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>} />
-        <Route path="/apartmentshow" element={<ApartmentShow />} />
-        <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} />} />
-        <Route path="/apartmentedit" element={<ApartmentEdit />} />
-        <Route path="/mylistings" element={<ProtectedApartmentIndex apartments={apartments} current_user={props.current_user} />} />
-        <Route element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header {...props} />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>} />
+          <Route path="/apartmentshow/:id" element={<ApartmentShow createApartment={createApartment} />}/>
+          <Route path="/apartmentnew" element={<ApartmentNew createApartment={createApartment} currentUser={props.current_user}/>} />
+          <Route path="/apartmentedit" element={<ApartmentEdit />} />
+          <Route path="/mylistings" element={<ProtectedApartmentIndex apartments={apartments} current_user={props.current_user} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   )
 }
 
