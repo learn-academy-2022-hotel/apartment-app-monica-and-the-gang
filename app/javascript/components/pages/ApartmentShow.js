@@ -8,7 +8,7 @@ const ApartmentShow = ({ apartments }) => {
   let currentApartment = apartments?.find((apartments) => apartments.id === +id)
 
   return (
-    <main>
+    <main alt="show page">
       {currentApartment && (
       <>
       <h3>Apartment Show</h3>

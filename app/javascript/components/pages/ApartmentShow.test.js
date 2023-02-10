@@ -1,16 +1,28 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import ApartmentShow from "./ApartmentShow"
+import { MemoryRouter, Routes, Route } from "react-router-dom"
+import mockApartments from "../mockApartments"
+
+const rendershow = () => {
+  render(
+    <MemoryRouter initialEntries={["/apartmentshow/1"]}>
+      <Routes>
+        <Route path="apartmentshow/:id" element={<ApartmentShow apartments={mockApartments} />} />
+      </Routes>
+    </MemoryRouter>
+  )
+}
 
 describe("<ApartmentShow />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div")
     render(<ApartmentShow />, div)
   })
-  it("can see the title of the page", () => {
-    const div = document.createElement("div")
-    render(<ApartmentShow />, div)
-    const title = screen.getByText("Apartment", {exact: false})
-    expect(title.textContent).toEqual("Apartment Information:")
-  })
+
+  it("renders apartment information", () => {
+    rendershow()
+    const main = screen.getByRole("main")
+    expect(main).toHaveAttribute("alt", "show page")
+    })
 })
